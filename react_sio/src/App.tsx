@@ -1,5 +1,4 @@
-import React from "react";
-import Reac, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { io } from "socket.io-client";
 
 const socket = io(`http://localhost:3003`);
@@ -15,11 +14,9 @@ const App = () => {
 
   useEffect(() => {
     socket.on("broadcast", (data) => {
-      let str_list = [...messageReceived];
-      str_list.push(data.message);
-      setMessageReceived(str_list);
+      setMessageReceived((current) => [...current, data.message]);
     });
-  }, [socket]);
+  }, []);
 
   return (
     <div className="App">
@@ -34,6 +31,14 @@ const App = () => {
       <button onClick={sendMessage}>Send Message</button>
       <hr />
       <h2>Messges:</h2>
+
+      <ul>
+        {messageReceived.map((value, index) => {
+          return <li key={index}>{value}</li>;
+        })}
+      </ul>
+
+      <h3>Messages String:</h3>
       <p>{messageReceived}</p>
     </div>
   );
