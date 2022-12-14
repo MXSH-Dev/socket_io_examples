@@ -10,11 +10,14 @@ const App = () => {
 
   const sendMessage = () => {
     socket.emit("message", { message: message });
+    setMessage("");
   };
 
   useEffect(() => {
     socket.on("broadcast", (data) => {
-      setMessageReceived([data.message]);
+      let str_list = [...messageReceived];
+      str_list.push(data.message);
+      setMessageReceived(str_list);
     });
   }, [socket]);
 

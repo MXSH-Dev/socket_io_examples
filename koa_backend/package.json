@@ -1,0 +1,30 @@
+{
+  "name": "ip_blocker_controller_mock",
+  "version": "1.0.0",
+  "description": "ip blocker controller mock server",
+  "main": "ip_blocker_mock.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "author": "Michael Xing",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/cors": "^4.0.0",
+    "axios": "^1.1.3",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-combine-routers": "^4.0.2",
+    "koa-json": "^2.0.2",
+    "koa-router": "^12.0.0",
+    "koa2-history-api-fallback": "^0.1.0",
+    "mime-types": "^2.1.35",
+    "socket.io": "^4.5.4",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "type": "module"
+}
